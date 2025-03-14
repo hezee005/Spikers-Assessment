@@ -1,0 +1,17 @@
+export default new LoginPage();
+
+class LoginPage {
+    visit() {
+      cy.visit('https://demo.spikerz.com/', {
+        auth: { username: 'me', password: 'SmipMe123456' }
+      });
+    }
+  
+    loginWithSession() {
+      cy.session('loginSession', () => {
+        this.visit();
+      });
+    }
+  }
+  
+  
